@@ -1,68 +1,56 @@
-🧱 Simple Proof‑of‑Work Blockchain in Python
-A minimal blockchain implementation written in Python, demonstrating the core concepts behind decentralized ledger technology.
+# 🧱 Simple Proof‑of‑Work Blockchain in Python
+
+A minimal blockchain implementation written in Python, demonstrating the core concepts behind decentralized ledger technology.  
 This project includes block creation, SHA‑256 hashing, Proof‑of‑Work mining, and full chain validation — all implemented from scratch without external dependencies.
 
-📌 Features
-Block structure with:
+---
 
-Index
+## 📌 Features
 
-Timestamp
+- **Block structure** with:
+  - Index  
+  - Timestamp  
+  - Data  
+  - Nonce  
+  - Previous hash  
+  - SHA‑256 hash  
+- **Proof‑of‑Work mining** (difficulty‑based)
+- **Genesis block creation**
+- **Automatic block linking**
+- **Blockchain validation**
+- **Readable block output**
 
-Data
+---
 
-Nonce
+## 📂 Project Structure
 
-Previous hash
-
-SHA‑256 hash
-
-Proof‑of‑Work mining  
-Adjustable difficulty (default: 4 leading zeros)
-
-Genesis block creation
-
-Automatic block linking  
-Each block references the hash of the previous one
-
-Blockchain validation  
-Ensures:
-
-Hash integrity
-
-Correct previous hash linkage
-
-Readable block output using __str__
-
-📂 Project Structure
-Code
+```
 /your-repo
 │
 ├── blockchain.py   # Main blockchain implementation
-├── README.md       # Project documentation
-└── (optional) examples, tests, etc.
-🚀 Getting Started
-1. Clone the repository
-bash
+└── README.md       # Documentation
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+```bash
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
-2. Run the blockchain
-bash
+```
+
+### 2. Run the blockchain
+```bash
 python blockchain.py
-🧪 Example Output
-When running the script, you will see:
+```
 
-Blocks being mined
+---
 
-Their hashes
+## 🧪 Example Output
 
-The full chain printed
-
-A final validation check
-
-Example:
-
-Code
+```
 Block mined: 0000a3f9...
 Block mined: 0000c1b2...
 Block mined: 0000f9d4...
@@ -73,73 +61,64 @@ Block(Index: 2, Hash: ..., Prev: ..., Data: Block 2 Data)
 Block(Index: 3, Hash: ..., Prev: ..., Data: Block 3 Data)
 
 Blockchain valid: True
-🛠 How It Works
-Block Class
+```
+
+---
+
+## 🛠 How It Works
+
+### Block Class
 Each block contains:
-
-Index
-
-Previous block hash
-
-Timestamp
-
-Data
-
-Nonce
-
-Its own SHA‑256 hash
+- Index  
+- Previous hash  
+- Timestamp  
+- Data  
+- Nonce  
+- SHA‑256 hash  
 
 The hash is computed from all fields, ensuring immutability.
 
-Blockchain Class
+### Blockchain Class
 Handles:
+- Genesis block creation  
+- Adding new blocks  
+- Mining via Proof‑of‑Work  
+- Validating the entire chain  
 
-Genesis block creation
-
-Adding new blocks
-
-Mining via Proof‑of‑Work
-
-Validating the entire chain
-
-Proof‑of‑Work
+### Proof‑of‑Work
 The miner increments the nonce until the hash starts with a required number of zeros:
 
-Code
+```
 difficulty = 4  →  hash must start with "0000"
-This simulates real blockchain mining.
+```
 
-🔒 Blockchain Validation
-The chain is considered valid if:
+---
 
-Every block’s stored hash matches its recalculated hash
+## 🔒 Blockchain Validation
 
-Every block’s previous_hash matches the hash of the block before it
+The chain is valid if:
 
-If any block is tampered with, validation fails.
+1. Each block’s stored hash matches its recalculated hash  
+2. Each block’s `previous_hash` matches the hash of the block before it  
 
-📘 Use Cases
-This project is ideal for:
+Any tampering breaks the chain.
 
-Learning blockchain fundamentals
+---
 
-Academic assignments
+## 📘 Use Cases
 
-Demonstrating PoW concepts
+- Learning blockchain fundamentals  
+- Academic assignments  
+- Demonstrating PoW concepts  
+- Building more advanced blockchain systems  
 
-Building more advanced blockchain systems
+---
 
-📈 Future Improvements (Optional)
-You can extend this project with:
+## 📈 Future Improvements
 
-Merkle trees
-
-Peer‑to‑peer networking
-
-Wallets & digital signatures
-
-Transaction pools
-
-Dynamic difficulty adjustment
-
-Persistent storage
+- Merkle trees  
+- P2P networking  
+- Wallets & digital signatures  
+- Transaction pools  
+- Dynamic difficulty  
+- Persistent storage  
